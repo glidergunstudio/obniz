@@ -1,0 +1,16 @@
+{
+  "name": "obniz-umbrella",
+  "version": "1.0.0",
+  "private": true,
+  "description": "1時間おきに、本日0時までの降水確率を判定してobnizのHT16K33マトリクスに傘マークを表示する",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "obniz": "^3.22.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,25 @@
+name: Morning Umbrella Notice
+
+on:
+  schedule:
+    # 毎時0分(UTC) = JST毎時0分
+    - cron: "0 * * * *"
+  workflow_dispatch: {} # 手動実行用
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm install
+
+      - run: npm start
+        env:
+          OBNIZ_ID: ${{ secrets.OBNIZ_ID }}
+          AREA_CODE: ${{ vars.AREA_CODE }}
+          POP_THRESHOLD: ${{ vars.POP_THRESHOLD }}
